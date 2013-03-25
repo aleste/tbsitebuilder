@@ -45,23 +45,51 @@ class Site
     /**
      * @var string
      *
-     * @ORM\Column(name="twitter", type="string", length=255)
+     * @ORM\Column(name="twitter", type="string", length=255, nullable=true)
      */
     private $twitter;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="facebook", type="string", length=255)
+     * @ORM\Column(name="facebook", type="string", length=255, nullable=true)
      */
     private $facebook;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="googleplus", type="string", length=255)
+     * @ORM\Column(name="googleplus", type="string", length=255, nullable=true)
      */
     private $googleplus;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="body_color", type="string", length=10, nullable=true)
+     */
+    private $bodyColor;                
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="header_color", type="string", length=10, nullable=true)
+     */
+    private $headerColor;    
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="footer_color", type="string", length=10, nullable=true)
+     */
+    private $footerColor;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="font_color", type="string", length=10, nullable=true)
+     */
+    private $fontColor;                
 
 
     /**
@@ -210,5 +238,97 @@ class Site
     public function getGoogleplus()
     {
         return $this->googleplus;
+    }
+
+    /**
+     * Set bodyColor
+     *
+     * @param string $bodyColor
+     * @return Site
+     */
+    public function setBodyColor($bodyColor)
+    {
+        $this->bodyColor = $bodyColor;
+    
+        return $this;
+    }
+
+    /**
+     * Get bodyColor
+     *
+     * @return string 
+     */
+    public function getBodyColor()
+    {
+        return $this->bodyColor;
+    }
+
+    /**
+     * Set headerColor
+     *
+     * @param string $headerColor
+     * @return Site
+     */
+    public function setHeaderColor($headerColor)
+    {
+        $this->headerColor = $headerColor;
+    
+        return $this;
+    }
+
+    /**
+     * Get headerColor
+     *
+     * @return string 
+     */
+    public function getHeaderColor()
+    {
+        return $this->headerColor;
+    }
+
+    /**
+     * Set footerColor
+     *
+     * @param string $footerColor
+     * @return Site
+     */
+    public function setFooterColor($footerColor)
+    {
+        $this->footerColor = $footerColor;
+    
+        return $this;
+    }
+
+    /**
+     * Get footerColor
+     *
+     * @return string 
+     */
+    public function getFooterColor()
+    {
+        return $this->footerColor;
+    }
+
+    /**
+     * Set fontColor
+     *
+     * @param string $fontColor
+     * @return Site
+     */
+    public function setFontColor($fontColor)
+    {
+        $this->fontColor = $fontColor;
+    
+        return $this;
+    }
+
+    /**
+     * Get fontColor
+     *
+     * @return string 
+     */
+    public function getFontColor()
+    {
+        return $this->fontColor;
     }
 }

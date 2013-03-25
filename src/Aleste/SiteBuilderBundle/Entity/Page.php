@@ -53,6 +53,19 @@ class Page
      */
     private $parent;
 
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="order", type="integer", nullable=true)
+     */
+    private $order;    
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="slug", type="string", length=255, nullable=true)
+     */
+    private $slug;                
 
     /**
      * Get id
@@ -131,5 +144,114 @@ class Page
     public function getContent()
     {
         return $this->content;
+    }
+
+    /**
+     * Set order
+     *
+     * @param integer $order
+     * @return Page
+     */
+    public function setOrder($order)
+    {
+        $this->order = $order;
+    
+        return $this;
+    }
+
+    /**
+     * Get order
+     *
+     * @return integer
+     */
+    public function getOrder()
+    {
+        return $this->order;
+    }    
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->children = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     * @return Page
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+    
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string 
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
+     * Add children
+     *
+     * @param \Aleste\SiteBuilderBundle\Entity\Page $children
+     * @return Page
+     */
+    public function addChildren(\Aleste\SiteBuilderBundle\Entity\Page $children)
+    {
+        $this->children[] = $children;
+    
+        return $this;
+    }
+
+    /**
+     * Remove children
+     *
+     * @param \Aleste\SiteBuilderBundle\Entity\Page $children
+     */
+    public function removeChildren(\Aleste\SiteBuilderBundle\Entity\Page $children)
+    {
+        $this->children->removeElement($children);
+    }
+
+    /**
+     * Get children
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getChildren()
+    {
+        return $this->children;
+    }
+
+    /**
+     * Set parent
+     *
+     * @param \Aleste\SiteBuilderBundle\Entity\Page $parent
+     * @return Page
+     */
+    public function setParent(\Aleste\SiteBuilderBundle\Entity\Page $parent = null)
+    {
+        $this->parent = $parent;
+    
+        return $this;
+    }
+
+    /**
+     * Get parent
+     *
+     * @return \Aleste\SiteBuilderBundle\Entity\Page 
+     */
+    public function getParent()
+    {
+        return $this->parent;
     }
 }
