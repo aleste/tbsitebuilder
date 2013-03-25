@@ -1,0 +1,5 @@
+site_builder:
+    resource: "@SiteBuilderBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
