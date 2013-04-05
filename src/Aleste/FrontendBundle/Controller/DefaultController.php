@@ -14,6 +14,12 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        return array();
+    	
+    	$em = $this->getDoctrine()->getManager();        
+        $site = $em->getRepository( 'SiteBuilderBundle:Site' )->find(1); //Retrieve Site Data
+        $pages = $em->getRepository( 'SiteBuilderBundle:Page' )->findAll(); //Retrieve Site Pages
+
+        return array('site' => $site,
+                    'pages' => $pages);
     }
 }
